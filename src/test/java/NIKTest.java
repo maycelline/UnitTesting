@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 
 public class NIKTest {
-    controllers cr = new controllers();
+    Controllers cr = new Controllers();
 
     @Test
     public void testValidateNIK_not16chars() {
@@ -26,6 +26,15 @@ public class NIKTest {
     @Test
     public void testValidateNIK_moreThan16Chars(){
         String NIK = "319894798178974381784371";
+        boolean expected = false;
+
+        boolean actual = cr.validateNIK(NIK);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testValidateNIK_withAlphabet(){
+        String NIK = "a763716672";
         boolean expected = false;
 
         boolean actual = cr.validateNIK(NIK);
