@@ -41,6 +41,7 @@ public class Controllers {
         // Input Email
         System.out.print("Email: ");
         email = sc.nextLine();
+        System.out.println(validateEmail(email));
         if (validateEmail(email)) {
             user.setEmail(email);
         }
