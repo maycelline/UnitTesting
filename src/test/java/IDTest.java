@@ -18,7 +18,7 @@ public class IDTest {
     @Test
     public void testGenderNull() {
         String nik = "1234567891234567";
-        String gender = "Not Defined";
+        String gender = "";
         String expected = "Gender not valid!";
 
         boolean resultExpected=true;
