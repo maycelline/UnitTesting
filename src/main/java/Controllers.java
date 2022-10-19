@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -85,7 +86,8 @@ public class Controllers {
 
         // after all data inputted, then do gerenate ID
         if (userValid){
-            //Function to generate library ID
+            String ID = generateID(user.NIK, user.gender);
+            System.out.println(ID);
         } else {
             System.out.println("Please input all valid data.");
         }
@@ -128,6 +130,22 @@ public class Controllers {
         }
         userValid = false;
         return matcher.matches();
+    }
+
+    public String generateID(String nik, String gender)  {
+        if(nik.equals("")){
+            return "NIK not valid!";
+        }
+        String codeGender = codeByGender(gender);
+        if(codeGender.equals("0")){
+           return "Gender not valid!";
+        }
+
+        LocalDateTime localDate = LocalDateTime.now();
+
+        String ID = nik.substring(13)+localDate.getYear()+codeGender;
+        return ID;
+
     }
 
     public int setPrice(String choosenPackage) {
