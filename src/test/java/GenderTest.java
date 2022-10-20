@@ -33,4 +33,14 @@ public class GenderTest {
         boolean resultActual= cr.codeByGender(gender).equals(expected);
         Assertions.assertEquals(resultExpected, resultActual);
     }
+
+    @Test
+    public void testGenderNumberIncluded() {
+        String gender = "11";
+        String expected = "0";
+
+        boolean resultExpected=true;
+        boolean resultActual= cr.codeByGender(gender).equals(expected);
+        Assertions.assertEquals(resultExpected, resultActual);
+    }
 }
