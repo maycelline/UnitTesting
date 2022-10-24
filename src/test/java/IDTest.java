@@ -3,26 +3,33 @@ import org.junit.jupiter.api.Test;
 
 public class IDTest {
     Controllers cr = new Controllers();
+    User user;
 
     @Test
-    public void testNIKNull() {
-        String nik = "";
-        String gender = "Male";
-        String expected = "NIK not valid!";
+    public void testUserAllValid() {
+        user = new User("3204285502020007", "Maycelline Selvyanti Sudarsono", "meycakep@gmail.com", "089636981078","Female",20,"Cikutra Higland");
 
-        boolean resultExpected=true;
-        boolean resultActual= cr.generateID(nik,gender).equals(expected);
+        String resultExpected = "007202222";
+        String resultActual = cr.generateID(user);
         Assertions.assertEquals(resultExpected, resultActual);
     }
 
     @Test
-    public void testGenderNull() {
-        String nik = "1234567891234567";
-        String gender = "";
-        String expected = "Gender not valid!";
+    public void testUserNIKInvalid() {
+        user = new User("3204285a02020007", "Maycelline Selvyanti Sudarsono", "meycakep@gmail.com", "089636981078","Female",20,"Cikutra Higland");
 
-        boolean resultExpected=true;
-        boolean resultActual= cr.generateID(nik,gender).equals(expected);
+        String resultExpected = "";
+        String resultActual = cr.generateID(user);
         Assertions.assertEquals(resultExpected, resultActual);
     }
+
+    @Test
+    public void testUser_OneNULL() {
+        user = new User("", "Maycelline Selvyanti Sudarsono", "meycakep@gmail.com", "089636981078","Female",20,"Cikutra Higland");
+
+        String resultExpected = "";
+        String resultActual = cr.generateID(user);
+        Assertions.assertEquals(resultExpected, resultActual);
+    }
+
 }

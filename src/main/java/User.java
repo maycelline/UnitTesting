@@ -77,7 +77,16 @@ public class User {
         this.age = age;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "NIK='" + NIK + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
