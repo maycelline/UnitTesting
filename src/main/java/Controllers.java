@@ -110,12 +110,12 @@ public class Controllers {
 
         String ID;
         // Validate NIK
-        if (!validateNIK(user.NIK) && !numberValidate(user.NIK)) {
+        if (!validateNIK(user.getNIK()) && !numberValidate(user.getNIK())) {
             userValid = false;
         }
 
         // Validate Email
-        if (!validateEmail(user.email)) {
+        if (!validateEmail(user.getEmail())) {
             userValid = false;
         }
 
